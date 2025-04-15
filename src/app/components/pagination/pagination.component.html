@@ -1,0 +1,48 @@
+<div class="py-4 flex flex-col items-center text-sm text-[#101058]">
+  <div class="mb-2">
+    Showing
+    {{ (currentPage - 1) * itemsPerPage + 1 }}
+    –
+    {{ Math.min(currentPage * itemsPerPage, totalItems) }}
+    of {{ totalItems }} entries
+  </div>
+
+  <div class="flex items-center gap-2">
+    <!-- Left Arrow -->
+    <button
+      class="w-8 h-8 flex items-center justify-center rounded-full border text-[#101058]"
+      [ngClass]="{
+        'border-[#D8D8D8] text-[#D8D8D8]': currentPage === 1,
+        'border-[#101058] text-[#101058]': currentPage > 1
+      }"
+      [disabled]="currentPage === 1"
+      (click)="goToPage(currentPage - 1)">
+    <!-- Left Arrow -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+    </button>
+
+    <!-- Current Page -->
+    <button
+      class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4B28D2] text-white font-medium"
+    >
+      {{ currentPage }}
+    </button>
+
+    <!-- Right Arrow -->
+    <button
+      class="w-8 h-8 flex items-center justify-center rounded-full border text-[#101058]"
+      [ngClass]="{
+        'border-[#D8D8D8] text-[#D8D8D8]': currentPage === totalPages,
+        'border-[#101058] text-[#101058]': currentPage < totalPages
+      }"
+      [disabled]="currentPage === totalPages"
+      (click)="goToPage(currentPage + 1)">
+    <!-- Right Arrow -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+    </button>
+  </div>
+</div>

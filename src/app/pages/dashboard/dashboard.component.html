@@ -1,1 +1,67 @@
-<p>dashboard works!</p>
+<div class="overflow-x-auto bg-white rounded-lg shadow">
+  <table class="w-full text-left border-collapse">
+    <thead>
+    <tr class="bg-[#101058] text-white text-sm">
+      <th class="p-4 cursor-pointer" (click)="sortBy('id')">
+        ID
+        <app-sort-arrow [direction]="sortColumn === 'id' ? sortDirection : ''"></app-sort-arrow>
+      </th>
+
+      <th class="p-4 cursor-pointer" (click)="sortBy('name')">
+        Name
+        <app-sort-arrow [direction]="sortColumn === 'name' ? sortDirection : ''"></app-sort-arrow>
+      </th>
+
+      <th class="p-4 cursor-pointer" (click)="sortBy('type')">
+        Type
+        <app-sort-arrow [direction]="sortColumn === 'type' ? sortDirection : ''"></app-sort-arrow>
+      </th>
+
+      <th class="p-4 cursor-pointer" (click)="sortBy('contract')">
+        Contract
+        <app-sort-arrow [direction]="sortColumn === 'contract' ? sortDirection : ''"></app-sort-arrow>
+      </th>
+
+      <th class="p-4 cursor-pointer" (click)="sortBy('grossSales')">
+        Gross Sales
+        <app-sort-arrow [direction]="sortColumn === 'grossSales' ? sortDirection : ''"></app-sort-arrow>
+      </th>
+
+      <th class="p-4 cursor-pointer" (click)="sortBy('commissions')">
+        Commissions
+        <app-sort-arrow [direction]="sortColumn === 'commissions' ? sortDirection : ''"></app-sort-arrow>
+      </th>
+
+      <th class="p-4 cursor-pointer" (click)="sortBy('conversions')">
+        Conversions
+        <app-sort-arrow [direction]="sortColumn === 'conversions' ? sortDirection : ''"></app-sort-arrow>
+      </th>
+      <th class="p-4"> </th>
+    </tr>
+    </thead>
+    <tbody class="text-sm text-[#101058]">
+    <tr *ngFor="let p of paginatedPartners" class="even:bg-gray-50">
+      <td class="p-4">{{ p.id }}</td>
+      <td class="p-4">{{ p.name }}</td>
+      <td class="p-4">{{ p.type || '-' }}</td>
+      <td class="p-4">{{ p.contract }}</td>
+      <td class="p-4">{{ p.grossSales }}</td>
+      <td class="p-4">{{ p.commissions }}</td>
+      <td class="p-4">{{ p.conversions }}</td>
+      <td class="p-4">
+        <button class="bg-[#6A4BFF] hover:bg-[#5734eb] text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs font-medium">
+          <img src="/menu.svg" alt="eye icon" class="w-4 h-4">
+          Details
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <app-pagination
+    [totalItems]="partners.length"
+    [itemsPerPage]="itemsPerPage"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+  ></app-pagination>
+</div>
