@@ -9,7 +9,8 @@ export const routes: Routes = [
     children: [
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
       { path: "dashboard", component: DashboardComponent },
-      // Add more child routes here
+      { path: "partners", loadComponent: () => import("./pages/partners/partners.component").then(m => m.PartnersComponent) },
+      { path: "approvals", loadComponent: () => import("./pages/approvals/approvals.component").then(m => m.ApprovalsComponent) },
     ],
   },
 ];

@@ -1,34 +1,36 @@
-<aside class="bg-white h-screen w-64 shadow-md flex flex-col pt-6">
+<aside class="h-screen w-64 flex flex-col pt-6">
   <!-- Logo -->
-  <div class="mb-10 px-4">
+  <div class="mb-10 px-4 cursor-pointer"
+       routerLink="/">
     <img src="/logo.svg" alt="Inflektion Logo" class="h-8" />
   </div>
 
   <!-- Navigation -->
   <nav class="flex flex-col gap-2 text-sm font-medium">
-    <!-- Active -->
     <a
-      href="#"
-      class="flex items-center gap-3 bg-[#101058] text-white px-4 py-3"
+      routerLink="/dashboard"
+      routerLinkActive="bg-[#101058] text-white"
+      class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-black border-l-4 border-accent"
     >
       <img src="/home.svg" alt="Inflektion Logo" class="h-5" />
       Dashboard
     </a>
 
-    <!-- Inactive -->
     <a
-      href="#"
-      class="flex items-center gap-3 text-gray-400 hover:text-black px-4 py-3"
+      routerLink="/partners"
+      routerLinkActive="bg-[#101058] text-white"
+      class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-black"
     >
       <img src="/partners.svg" alt="Inflektion Logo" class="h-5" />
       Partners
     </a>
 
     <a
-      href="#"
-      class="flex items-center gap-3 text-gray-400 hover:text-black px-4 py-3"
+      routerLink="/approvals"
+      routerLinkActive="bg-[#101058] text-white"
+      class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-black"
     >
-     <img src="/approvals.svg" alt="Inflektion Logo" class="h-5" />
+      <img src="/approvals.svg" alt="Inflektion Logo" class="h-5" />
       Approvals
     </a>
   </nav>

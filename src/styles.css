@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #031050;
+  --color-secondary: #5E33CE;
+  --color-accent: #f82ea4;
+}
+
 
 /* Global styles */
 html,
