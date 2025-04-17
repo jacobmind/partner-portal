@@ -30,7 +30,7 @@
         'bg-[#101058] text-white border-accent': rlaDashboard.isActive,
         'text-gray-400 hover:text-black hover:bg-gray-100 border-transparent': !rlaDashboard.isActive
       }"
-      class="flex items-center gap-3 px-4 py-3 transition-colors duration-200 border-l-4"
+      class="flex items-center gap-3 px-4 py-4 transition-colors duration-200 border-l-4"
     >
       <img ngSrc="/home.svg" alt="Dashboard Icon" class="h-5" height="24" width="24"/>
       <span class="hidden md:block">Dashboard</span>
@@ -45,7 +45,7 @@
         'bg-[#101058] text-white border-accent': rlaPartners.isActive,
         'text-gray-400 hover:text-black hover:bg-gray-100 border-transparent': !rlaPartners.isActive
       }"
-      class="flex items-center gap-3 px-4 py-3 transition-colors duration-200 border-l-4 "
+      class="flex items-center gap-3 px-4 py-4 transition-colors duration-200 border-l-4 "
     >
       <img ngSrc="/partners.svg" alt="Partners Icon" class="h-5" [ngClass]="{ 'filter invert': rlaPartners.isActive }"
            height="24" width="24"/>
@@ -61,7 +61,7 @@
         'bg-[#101058] text-white border-accent': rlaApprovals.isActive,
         'text-gray-400 hover:text-black hover:bg-gray-100 border-transparent': !rlaApprovals.isActive
       }"
-      class="flex items-center gap-3 px-4 py-3 transition-colors duration-200 border-l-4 "
+      class="flex items-center gap-3 px-4 py-4 transition-colors duration-200 border-l-4 "
     >
       <img ngSrc="/approvals.svg" alt="Approvals Icon" class="h-5" [ngClass]="{ 'filter invert': rlaApprovals.isActive }"
            height="24" width="24"/>

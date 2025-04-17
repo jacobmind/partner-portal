@@ -10,7 +10,6 @@ import {NgClass, NgOptimizedImage} from '@angular/common';
     NgClass
   ],
   templateUrl: './table-toolbar.component.html',
-  styleUrl: './table-toolbar.component.css'
 })
 export class TableToolbarComponent {
   modalMessage = '';
