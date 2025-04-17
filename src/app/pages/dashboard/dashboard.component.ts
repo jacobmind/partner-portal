@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import {CurrencyPipe, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {PaginationComponent} from '../../components/pagination/pagination.component';
-import { Partner, PartnerService } from '../../services/partner.service';
+import { PartnerService } from '../../services/partner.service';
 import {TableToolbarComponent} from '../../components/table-toolbar/table-toolbar.component';
+import {Partner} from '../../models/partner.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -39,7 +40,15 @@ export class DashboardComponent {
 
     this.partnerService.getPartners().subscribe({
       next: (data: any) => {
-        const items = Object.values(data || {}).map(item => item as Partner);
+        const items = Object.values(data || {}).map((item: any) => ({
+          id: item.id ?? '-',
+          partnerName: item.partnerName ?? '-',
+          partnerType: item.partnerType ?? '-',
+          contract: item.contract ?? '-',
+          grosssales: item.grosssales ?? 0,
+          commissions: item.commissions ?? 0,
+          conversions: item.conversions ?? 0,
+        }));
 
         if (!items.length) {
           this.empty = true;
@@ -49,7 +58,7 @@ export class DashboardComponent {
         this.loading = false;
       },
       error: (err) => {
-        this.error = 'Failed to load partners. Please try again later.';
+        this.error = 'Something went wrong while loading partner data. Please check your connection or try again later.';
         console.error('Fetch error:', err);
         this.loading = false;
       }

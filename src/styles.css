@@ -1,31 +1,25 @@
 @import "tailwindcss";
 
 @theme {
+  --font-text: 'Poppins', sans-serif;
   --color-primary: #031050;
   --color-secondary: #5E33CE;
   --color-accent: #f82ea4;
 }
-
-
-/* Global styles */
-html,
 body {
-  margin: 0;
-  padding: 0;
-  font-family:
-    "Poppins",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
+  @apply bg-[#FCFCFC];
 }
 
-body {
-  background-color: #f5f5f5;
+@layer base {
+  @apply font-text;
+}
+
+@layer components {
+  h1, h2, h3, p, span, a  {
+    @apply font-text;
+  }
+
+  p, a, button, th {
+    @apply font-normal;
+  }
 }

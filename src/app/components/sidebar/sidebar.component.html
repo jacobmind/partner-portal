@@ -27,7 +27,7 @@
       #rlaDashboard="routerLinkActive"
       [routerLinkActiveOptions]="{ exact: true }"
       [ngClass]="{
-        'bg-[#101058] text-white border-accent': rlaDashboard.isActive,
+        'bg-[#101058] text-white border-accent font-semibold': rlaDashboard.isActive,
         'text-gray-400 hover:text-black hover:bg-gray-100 border-transparent': !rlaDashboard.isActive
       }"
       class="flex items-center gap-3 px-4 py-4 transition-colors duration-200 border-l-4"
@@ -45,7 +45,7 @@
         'bg-[#101058] text-white border-accent': rlaPartners.isActive,
         'text-gray-400 hover:text-black hover:bg-gray-100 border-transparent': !rlaPartners.isActive
       }"
-      class="flex items-center gap-3 px-4 py-4 transition-colors duration-200 border-l-4 "
+      class="flex items-center gap-3 px-4 py-4 transition-colors duration-200 border-l-4 font-light"
     >
       <img ngSrc="/partners.svg" alt="Partners Icon" class="h-5" [ngClass]="{ 'filter invert': rlaPartners.isActive }"
            height="24" width="24"/>
