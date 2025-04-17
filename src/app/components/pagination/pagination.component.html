@@ -12,8 +12,8 @@
     <button
       class="w-8 h-8 flex items-center justify-center rounded-full border text-[#101058]"
       [ngClass]="{
-        'border-[#D8D8D8] text-[#D8D8D8]': currentPage === 1,
-        'border-[#101058] text-[#101058]': currentPage > 1
+        'border-[#D8D8D8] text-[#D8D8D8] cursor-not-allowed': currentPage === 1,
+        'border-[#101058] text-[#101058] cursor-pointer': currentPage > 1
       }"
       [disabled]="currentPage === 1"
       (click)="goToPage(currentPage - 1)">
@@ -32,17 +32,17 @@
 
     <!-- Right Arrow -->
     <button
-      class="w-8 h-8 flex items-center justify-center rounded-full border text-[#101058]"
+      class="w-8 h-8 flex items-center justify-center rounded-full border text-[#101058] cursor-pointer"
       [ngClass]="{
-        'border-[#D8D8D8] text-[#D8D8D8]': currentPage === totalPages,
-        'border-[#101058] text-[#101058]': currentPage < totalPages
+        'border-[#D8D8D8] text-[#D8D8D8] cursor-not-allowed': currentPage === totalPages,
+        'border-[#101058] text-[#101058] cursor-pointer': currentPage < totalPages
       }"
       [disabled]="currentPage === totalPages"
       (click)="goToPage(currentPage + 1)">
-    <!-- Right Arrow -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-    </svg>
+      <!-- Right Arrow -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
     </button>
   </div>
 </div>

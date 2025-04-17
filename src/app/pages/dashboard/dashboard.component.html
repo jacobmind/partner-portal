@@ -38,7 +38,16 @@
         </thead>
         <tbody class="text-sm text-[#101058] bg-[#F9FBFE]">
         <tr *ngIf="loading">
-          <td class="p-4 text-center" colspan="8">Loading partners...</td>
+          <td colspan="8" class="text-center p-4">Loading partners...</td>
+        </tr>
+        <tr *ngIf="error">
+          <td colspan="8" class="text-center text-red-600 p-4">
+            {{ error }}
+            <button class="ml-2 underline text-blue-600" (click)="fetchPartners()">Retry</button>
+          </td>
+        </tr>
+        <tr *ngIf="empty && !loading && !error">
+          <td colspan="8" class="text-center p-4">No partner data available.</td>
         </tr>
         <tr *ngFor="let p of paginatedPartners" class="even:bg-[#F4F7FE]">
           <td class="px-4 py-2">{{ p.id }}</td>

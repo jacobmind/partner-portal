@@ -23,6 +23,8 @@ export class DashboardComponent {
   loading = false;
   itemsPerPage = 14;
   currentPage = 1;
+  error: string | null = null;
+  empty = false;
 
   constructor(private partnerService: PartnerService) {}
 
@@ -32,16 +34,25 @@ export class DashboardComponent {
 
   fetchPartners() {
     this.loading = true;
+    this.error = null;
+    this.empty = false;
+
     this.partnerService.getPartners().subscribe({
       next: (data: any) => {
-        // Convert the object with numeric keys to an array
-        this.partners = Object.values(data);
+        const items = Object.values(data || {}).map(item => item as Partner);
+
+        if (!items.length) {
+          this.empty = true;
+        }
+
+        this.partners = items;
         this.loading = false;
       },
       error: (err) => {
-        console.error('Failed to fetch partners', err);
+        this.error = 'Failed to load partners. Please try again later.';
+        console.error('Fetch error:', err);
         this.loading = false;
-      },
+      }
     });
   }
 
