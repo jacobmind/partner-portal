@@ -5,31 +5,31 @@
     <table class="w-full text-left border-collapse table-layout-fixed">
       <thead>
       <tr class="bg-primary text-white text-sm">
-        <th class="px-4 py-3 cursor-pointer w-[150px]" (click)="sortBy('id')">
+        <th class="px-4 py-3 cursor-pointer w-[150px]">
           ID
         </th>
 
-        <th class="p-2 cursor-pointer w-[150px]" (click)="sortBy('name')">
+        <th class="p-2 cursor-pointer w-[150px]">
           Name
         </th>
 
-        <th class="p-2 cursor-pointer w-[150px]" (click)="sortBy('type')">
+        <th class="p-2 cursor-pointer w-[150px]">
           Type
         </th>
 
-        <th class="p-2 cursor-pointer w-[150px]" (click)="sortBy('contract')">
+        <th class="p-2 cursor-pointer w-[150px]">
           Contract
         </th>
 
-        <th class="p-2 cursor-pointer w-[150px]" (click)="sortBy('grossSales')">
+        <th class="p-2 cursor-pointer w-[150px]">
           Gross Sales
         </th>
 
-        <th class="p-2 cursor-pointer w-[150px]" (click)="sortBy('commissions')">
+        <th class="p-2 cursor-pointer w-[150px]">
           Commissions
         </th>
 
-        <th class="p-2 cursor-pointer w-[150px]" (click)="sortBy('conversions')">
+        <th class="p-2 cursor-pointer w-[150px]">
           Conversions
         </th>
         <th class="p-2 w-[150px]"> </th>
@@ -48,8 +48,10 @@
         <td class="p-2">{{ p.commissions }}</td>
         <td class="p-2">{{ p.conversions }}</td>
         <td class="p-2">
-          <button class="bg-secondary hover:bg-[#5734eb] text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs font-medium">
-            <img src="/menu.svg" alt="eye icon" class="w-4 h-4">
+          <button
+            class="bg-secondary hover:bg-[#5734eb] text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs font-medium"
+          >
+            <img ngSrc="/menu.svg" alt="eye icon" class="w-4 h-4" height="8" width="9">
             Details
           </button>
         </td>

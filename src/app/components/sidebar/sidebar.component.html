@@ -9,28 +9,46 @@
   <nav class="flex flex-col gap-2 text-sm font-medium">
     <a
       routerLink="/dashboard"
-      routerLinkActive="bg-[#101058] text-white"
-      class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white border-l-4 border-accent"
+      [routerLinkActive]="'active'"
+      #rlaDashboard="routerLinkActive"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [ngClass]="{
+        'bg-[#101058] text-white border-accent': rlaDashboard.isActive,
+        'text-gray-400 hover:text-black hover:bg-gray-100 border-transparent': !rlaDashboard.isActive
+      }"
+      class="flex items-center gap-3 px-4 py-3 transition-colors duration-200 border-l-4"
     >
-      <img src="/home.svg" alt="Inflektion Logo" class="h-5" />
+      <img src="/home.svg" alt="Dashboard Icon" class="h-5" />
       Dashboard
     </a>
 
     <a
       routerLink="/partners"
-      routerLinkActive="bg-[#101058] text-white"
-      class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-black"
+      [routerLinkActive]="'active'"
+      #rlaPartners="routerLinkActive"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [ngClass]="{
+        'bg-[#101058] text-white border-accent': rlaPartners.isActive,
+        'text-gray-400 hover:text-black hover:bg-gray-100 border-transparent': !rlaPartners.isActive
+      }"
+      class="flex items-center gap-3 px-4 py-3 transition-colors duration-200 border-l-4 "
     >
-      <img src="/partners.svg" alt="Inflektion Logo" class="h-5" />
+      <img src="/partners.svg" alt="Partners Icon" class="h-5" [ngClass]="{ 'filter invert': rlaPartners.isActive }" />
       Partners
     </a>
 
     <a
       routerLink="/approvals"
-      routerLinkActive="bg-[#101058] text-white"
-      class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-black"
+      [routerLinkActive]="'active'"
+      #rlaApprovals="routerLinkActive"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [ngClass]="{
+        'bg-[#101058] text-white border-accent': rlaApprovals.isActive,
+        'text-gray-400 hover:text-black hover:bg-gray-100 border-transparent': !rlaApprovals.isActive
+      }"
+      class="flex items-center gap-3 px-4 py-3 transition-colors duration-200 border-l-4 "
     >
-      <img src="/approvals.svg" alt="Inflektion Logo" class="h-5" />
+      <img src="/approvals.svg" alt="Approvals Icon" class="h-5" [ngClass]="{ 'filter invert': rlaApprovals.isActive }" />
       Approvals
     </a>
   </nav>

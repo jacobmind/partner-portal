@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {PaginationComponent} from '../../components/pagination/pagination.component';
-import {SortArrowComponent} from '../../components/sort-arrow/sort-arrow.component';
 import { Partner, PartnerService } from '../../services/partner.service';
 import {TableToolbarComponent} from '../../components/table-toolbar/table-toolbar.component';
 
@@ -10,9 +9,9 @@ import {TableToolbarComponent} from '../../components/table-toolbar/table-toolba
   imports: [
     NgForOf,
     PaginationComponent,
-    SortArrowComponent,
     NgIf,
     TableToolbarComponent,
+    NgOptimizedImage,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
@@ -57,17 +56,6 @@ export class DashboardComponent {
   sortColumn: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
 
-  sortBy(column: string) {
-    if (this.sortColumn === column) {
-      // Toggle direction
-      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    } else {
-      this.sortColumn = column;
-      this.sortDirection = 'asc';
-    }
-
-    this.sortPartners();
-  }
 
   sortPartners() {
     this.partners.sort((a: any, b: any) => {

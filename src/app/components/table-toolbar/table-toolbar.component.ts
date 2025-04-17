@@ -19,8 +19,4 @@ export class TableToolbarComponent {
     this.modalMessage = message;
     this.isModalOpen = true;
   }
-
-  closeModal() {
-    this.isModalOpen = false;
-  }
 }
