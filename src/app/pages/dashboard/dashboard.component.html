@@ -6,32 +6,39 @@
       <table class="w-full text-left border-collapse table-layout-fixed">
         <thead>
         <tr class="bg-primary text-white text-sm">
-          <th class="px-4 py-3 cursor-pointer w-[150px]">
+          <th class="px-4 py-3 cursor-pointer w-[100px]" (click)="setSort('id')">
             ID
+            <app-sort-arrow [direction]="sortColumn === 'id' ? sortDirection : ''"></app-sort-arrow>
           </th>
 
-          <th class="p-2 cursor-pointer w-[150px]">
+          <th class="p-2 cursor-pointer w-[150px]" (click)="setSort('partnerName')">
             Name
+            <app-sort-arrow [direction]="sortColumn === 'partnerName' ? sortDirection : ''"></app-sort-arrow>
           </th>
 
-          <th class="p-2 cursor-pointer w-[150px]">
+          <th class="p-2 cursor-pointer w-[120px]" (click)="setSort('partnerType')">
             Type
+            <app-sort-arrow [direction]="sortColumn === 'partnerType' ? sortDirection : ''"></app-sort-arrow>
           </th>
 
-          <th class="p-2 cursor-pointer w-[150px]">
+          <th class="p-2 cursor-pointer w-[150px]" (click)="setSort('contract')">
             Contract
+            <app-sort-arrow [direction]="sortColumn === 'contract' ? sortDirection : ''"></app-sort-arrow>
           </th>
 
-          <th class="p-2 cursor-pointer w-[150px]">
+          <th class="p-2 cursor-pointer w-[210px]" (click)="setSort('grosssales')">
             Gross Sales
+            <app-sort-arrow [direction]="sortColumn === 'grosssales' ? sortDirection : ''"></app-sort-arrow>
           </th>
 
-          <th class="p-2 cursor-pointer w-[150px]">
+          <th class="p-2 cursor-pointer w-[170px]" (click)="setSort('commissions')">
             Commissions
+            <app-sort-arrow [direction]="sortColumn === 'commissions' ? sortDirection : ''"></app-sort-arrow>
           </th>
 
-          <th class="p-2 cursor-pointer w-[150px]">
+          <th class="p-2 cursor-pointer w-[155px]" (click)="setSort('conversions')">
             Conversions
+            <app-sort-arrow [direction]="sortColumn === 'conversions' ? sortDirection : ''"></app-sort-arrow>
           </th>
           <th class="p-2 w-[150px]"> </th>
         </tr>

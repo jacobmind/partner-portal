@@ -11,10 +11,11 @@ This project is part of the Frontend Engineering Assessment for Inflektion. It c
 - **Error Handling:** Displays user-friendly messages on API failure and handles missing or null data gracefully.
 - **Styling:** Utilizes Tailwind CSS for a clean and modern UI, ensuring a consistent look and feel across the application.
 - **Testing:** Includes unit tests for the main components using Karma and Jasmine.
+- **Sorting:** Allows sorting of the table by clicking on the column headers.
  
 ## Technologies Used
  
-- Angular CLI v19.2.7
+- Angular v19
 - Tailwind CSS v4
 - TypeScript
 - Angular HTTPClient
@@ -28,8 +29,10 @@ This project is part of the Frontend Engineering Assessment for Inflektion. It c
  
 - GitHub Repository: https://github.com/jacobmind/partner-portal
 - Live URL: https://inflektion.jacobmind.com/
-  
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+
+## Issues
+- **Tailwind Styling:** The project uses clean, utility-first Tailwind CSS without custom overrides. While this ensures maintainable and responsive styling, it may not be 100% pixel-perfect compared to the Figma design.
+- **API Limitations:** Since the provided Mock API does not support pagination or query parameters, client-side pagination based on fetching subsequent records was not implemented. All 22 records are fetched and displayed with local pagination.
 
 ## Development server
 

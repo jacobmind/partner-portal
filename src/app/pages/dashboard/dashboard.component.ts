@@ -4,6 +4,7 @@ import {PaginationComponent} from '../../components/pagination/pagination.compon
 import { PartnerService } from '../../services/partner.service';
 import {TableToolbarComponent} from '../../components/table-toolbar/table-toolbar.component';
 import {Partner} from '../../models/partner.model';
+import {SortArrowComponent} from '../../components/sort-arrow/sort-arrow.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,7 @@ import {Partner} from '../../models/partner.model';
     TableToolbarComponent,
     NgOptimizedImage,
     CurrencyPipe,
+    SortArrowComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
@@ -77,10 +79,26 @@ export class DashboardComponent {
   sortColumn: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
 
+  setSort(column: string) {
+    if (this.sortColumn === column) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortColumn = column;
+      this.sortDirection = 'asc';
+    }
+    this.sortPartners();
+  }
+
   sortPartners() {
     this.partners.sort((a: any, b: any) => {
       let valueA = a[this.sortColumn];
       let valueB = b[this.sortColumn];
+
+      // If sorting by id, cast to number
+      if (this.sortColumn === 'id') {
+        valueA = Number(valueA);
+        valueB = Number(valueB);
+      }
 
       // If it's money, strip $ and commas
       if (typeof valueA === 'string' && valueA.includes('$')) {
@@ -95,6 +113,8 @@ export class DashboardComponent {
       if (valueA > valueB) return this.sortDirection === 'asc' ? 1 : -1;
       return 0;
     });
+
+    this.currentPage = 1;
   }
 
 
