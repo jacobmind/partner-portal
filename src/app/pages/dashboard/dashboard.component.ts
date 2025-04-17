@@ -77,7 +77,6 @@ export class DashboardComponent {
   sortColumn: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
 
-
   sortPartners() {
     this.partners.sort((a: any, b: any) => {
       let valueA = a[this.sortColumn];

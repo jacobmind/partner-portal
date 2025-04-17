@@ -1,16 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarComponent } from './sidebar.component';
+import {ActivatedRoute} from '@angular/router';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [SidebarComponent]
+    TestBed.configureTestingModule({
+      imports: [SidebarComponent],
+      providers: [{provide: ActivatedRoute, useValue: {}}]
     })
-    .compileComponents();
 
     fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;

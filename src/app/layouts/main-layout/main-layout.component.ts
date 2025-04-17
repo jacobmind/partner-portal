@@ -11,7 +11,6 @@ import {RouterOutlet} from '@angular/router';
     RouterOutlet
   ],
   templateUrl: './main-layout.component.html',
-  styleUrl: './main-layout.component.css'
 })
 export class MainLayoutComponent {
 
