@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
-import {NgClass} from '@angular/common';
+import {NgClass, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
   imports: [
     RouterLink,
     RouterLinkActive,
-    NgClass
+    NgClass,
+    NgOptimizedImage
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'

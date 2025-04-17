@@ -1,63 +1,66 @@
 <app-table-toolbar></app-table-toolbar>
 
 <div class="rounded-lg shadow-xl bg-white">
-  <div class="overflow-hidden rounded-lg">
-    <table class="w-full text-left border-collapse table-layout-fixed">
-      <thead>
-      <tr class="bg-primary text-white text-sm">
-        <th class="px-4 py-3 cursor-pointer w-[150px]">
-          ID
-        </th>
+  <div class="overflow-x-auto">
+    <div class="overflow-hidden rounded-lg min-w-[750px]">
+      <table class="w-full text-left border-collapse table-layout-fixed">
+        <thead>
+        <tr class="bg-primary text-white text-sm">
+          <th class="px-4 py-3 cursor-pointer w-[150px]">
+            ID
+          </th>
 
-        <th class="p-2 cursor-pointer w-[150px]">
-          Name
-        </th>
+          <th class="p-2 cursor-pointer w-[150px]">
+            Name
+          </th>
 
-        <th class="p-2 cursor-pointer w-[150px]">
-          Type
-        </th>
+          <th class="p-2 cursor-pointer w-[150px]">
+            Type
+          </th>
 
-        <th class="p-2 cursor-pointer w-[150px]">
-          Contract
-        </th>
+          <th class="p-2 cursor-pointer w-[150px]">
+            Contract
+          </th>
 
-        <th class="p-2 cursor-pointer w-[150px]">
-          Gross Sales
-        </th>
+          <th class="p-2 cursor-pointer w-[150px]">
+            Gross Sales
+          </th>
 
-        <th class="p-2 cursor-pointer w-[150px]">
-          Commissions
-        </th>
+          <th class="p-2 cursor-pointer w-[150px]">
+            Commissions
+          </th>
 
-        <th class="p-2 cursor-pointer w-[150px]">
-          Conversions
-        </th>
-        <th class="p-2 w-[150px]"> </th>
-      </tr>
-      </thead>
-      <tbody class="text-sm text-[#101058] bg-[#F9FBFE]">
-      <tr *ngIf="loading">
-        <td class="p-4 text-center" colspan="8">Loading partners...</td>
-      </tr>
-      <tr *ngFor="let p of paginatedPartners" class="even:bg-[#F4F7FE]">
-        <td class="px-4 py-2">{{ p.id }}</td>
-        <td class="p-2">{{ p.partnerName }}</td>
-        <td class="p-2">{{ p.partnerType || '-' }}</td>
-        <td class="p-2">{{ p.contract }}</td>
-        <td class="p-2">{{ p.grossSales }}</td>
-        <td class="p-2">{{ p.commissions }}</td>
-        <td class="p-2">{{ p.conversions }}</td>
-        <td class="p-2">
-          <button
-            class="bg-secondary hover:bg-[#5734eb] text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs font-medium"
-          >
-            <img ngSrc="/menu.svg" alt="eye icon" class="w-4 h-4" height="8" width="9">
-            Details
-          </button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+          <th class="p-2 cursor-pointer w-[150px]">
+            Conversions
+          </th>
+          <th class="p-2 w-[150px]"> </th>
+        </tr>
+        </thead>
+        <tbody class="text-sm text-[#101058] bg-[#F9FBFE]">
+        <tr *ngIf="loading">
+          <td class="p-4 text-center" colspan="8">Loading partners...</td>
+        </tr>
+        <tr *ngFor="let p of paginatedPartners" class="even:bg-[#F4F7FE]">
+          <td class="px-4 py-2">{{ p.id }}</td>
+          <td class="p-2">{{ p.partnerName }}</td>
+          <td class="p-2">{{ p.partnerType || '-' }}</td>
+          <td class="p-2">{{ p.contract }}</td>
+          <td class="p-2">{{ p.grosssales | currency:'USD':'symbol':'1.0-0' }}</td>
+          <td class="p-2">{{ p.commissions | currency:'USD':'symbol':'1.0-0' }}</td>
+          <td class="p-2">{{ p.conversions }}</td>
+          <td class="p-2">
+            <button
+              class="bg-secondary hover:bg-[#5734eb] text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs font-medium cursor-not-allowed"
+              disabled
+            >
+              <img ngSrc="/menu.svg" alt="eye icon" class="w-4 h-4" height="8" width="9">
+              Details
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <app-pagination

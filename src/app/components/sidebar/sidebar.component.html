@@ -1,11 +1,25 @@
-<aside class="h-screen w-64 flex flex-col pt-6">
-  <!-- Logo -->
-  <div class="mb-10 px-4 cursor-pointer"
+<aside class="h-screen w-12 md:w-48 lg:w-64 flex flex-col pt-6">
+  <div class="mb-10 px-3 md:px-4 cursor-pointer"
        routerLink="/">
-    <img src="/logo.svg" alt="Inflektion Logo" class="h-8" />
+      <!-- Desktop logo -->
+      <img
+        ngSrc="/logo.svg"
+        alt="Inflektion Logo"
+        class="hidden md:block h-8"
+        height="27"
+        width="164"
+      />
+
+      <!-- Mobile logo -->
+      <img
+        ngSrc="/icon.svg"
+        alt="Inflektion Logo"
+        class="block md:hidden h-10 w-10"
+        height="40"
+        width="40"
+      />
   </div>
 
-  <!-- Navigation -->
   <nav class="flex flex-col gap-2 text-sm font-medium">
     <a
       routerLink="/dashboard"
@@ -18,8 +32,8 @@
       }"
       class="flex items-center gap-3 px-4 py-3 transition-colors duration-200 border-l-4"
     >
-      <img src="/home.svg" alt="Dashboard Icon" class="h-5" />
-      Dashboard
+      <img ngSrc="/home.svg" alt="Dashboard Icon" class="h-5" height="24" width="24"/>
+      <span class="hidden md:block">Dashboard</span>
     </a>
 
     <a
@@ -33,8 +47,9 @@
       }"
       class="flex items-center gap-3 px-4 py-3 transition-colors duration-200 border-l-4 "
     >
-      <img src="/partners.svg" alt="Partners Icon" class="h-5" [ngClass]="{ 'filter invert': rlaPartners.isActive }" />
-      Partners
+      <img ngSrc="/partners.svg" alt="Partners Icon" class="h-5" [ngClass]="{ 'filter invert': rlaPartners.isActive }"
+           height="24" width="24"/>
+      <span class="hidden md:block">Partners</span>
     </a>
 
     <a
@@ -48,8 +63,9 @@
       }"
       class="flex items-center gap-3 px-4 py-3 transition-colors duration-200 border-l-4 "
     >
-      <img src="/approvals.svg" alt="Approvals Icon" class="h-5" [ngClass]="{ 'filter invert': rlaApprovals.isActive }" />
-      Approvals
+      <img ngSrc="/approvals.svg" alt="Approvals Icon" class="h-5" [ngClass]="{ 'filter invert': rlaApprovals.isActive }"
+           height="24" width="24"/>
+      <span class="hidden md:block">Approvals</span>
     </a>
   </nav>
 </aside>

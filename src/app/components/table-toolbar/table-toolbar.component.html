@@ -1,37 +1,52 @@
-<div class="flex justify-between items-center py-4">
-  <!-- Left: Date Filter -->
-  <button
-    (click)="openModal('Date Filter will be implemented soon')"
-    class="flex items-center gap-2 bg-white text-[#101058] px-4 py-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-md">
-    <img src="/calendar.svg" alt="calendar icon" class="w-4 h-4" height="11" width="17">
-    <span class="text-sm font-medium">July 6, 2022 – Aug 5, 2022</span>
-    <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M5.5 7l4.5 4.5 4.5-4.5H5.5z" />
-    </svg>
-  </button>
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-2">
+  <div class="flex justify-between items-center">
+    <!-- Left: Date Filter -->
+    <button
+      (click)="openModal('Date Filter will be implemented soon')"
+      class="flex items-center gap-2 bg-white text-[#101058] p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-md">
+      <img ngSrc="/calendar.svg" alt="calendar icon" class="w-4 h-4" height="11" width="17">
+      <span class="text-sm font-medium">July 6, 2022 – Aug 5, 2022</span>
+      <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M5.5 7l4.5 4.5 4.5-4.5H5.5z" />
+      </svg>
+    </button>
 
-  <!-- Right: Action Buttons -->
-  <div class="flex gap-4">
+    <button
+      (click)="showMobileActions = !showMobileActions"
+      class="flex md:hidden items-center gap-2 text-white bg-gradient-to-b from-[#5E33CE] from-5% to-[#1E0B50] px-6 py-3 rounded-full text-sm font-medium shadow cursor-pointer">
+      <img ngSrc="/menu.svg" alt="menu icon" class="w-4 h-4" height="11" width="17">
+    </button>
+  </div>
+
+  <!-- Action Buttons: Responsive, only rendered once -->
+  <div
+    class="flex gap-4 flex-col sm:flex-row sm:gap-4 md:flex md:flex-row"
+    [ngClass]="{
+      'hidden md:flex': !showMobileActions
+    }"
+  >
     <button
       (click)="openModal('Choose Columns will be implemented soon')"
-      class="flex items-center gap-2 text-white bg-gradient-to-b from-[#5E33CE] from-5% to-[#1E0B50] px-6 py-3 rounded-full text-sm font-medium shadow">
-      Choose Columns
-      <img ngSrc="/columns.svg" alt="message icon" class="w-4 h-4" height="11" width="17">
-
+      class="flex items-center gap-2 justify-between md:justify-start text-white bg-gradient-to-b from-[#5E33CE] from-5% to-[#1E0B50] px-6 py-3 rounded-full text-sm font-medium shadow cursor-pointer"
+    >
+      <span>Choose Columns</span>
+      <img ngSrc="/columns.svg" alt="message icon" class="w-4 h-4" height="11" width="17" />
     </button>
 
     <button
       (click)="openModal('Message Partners will be implemented soon')"
-      class="flex items-center gap-2 text-white bg-gradient-to-b from-[#5E33CE] to-[#1E0B50] px-6 py-3 rounded-full text-sm font-medium shadow">
-      Message Partners
-      <img ngSrc="/message.svg" alt="message icon" class="w-4 h-4" height="11" width="17">
+      class="flex items-center gap-2 justify-between md:justify-start text-white bg-gradient-to-b from-[#5E33CE] to-[#1E0B50] px-6 py-3 rounded-full text-sm font-medium shadow cursor-pointer"
+    >
+      <span>Message Partners</span>
+      <img ngSrc="/message.svg" alt="message icon" class="w-4 h-4" height="11" width="17" />
     </button>
 
     <button
       (click)="openModal('Export List will be implemented soon')"
-      class="flex items-center gap-2 text-white bg-gradient-to-b from-secondary to-[#1E0B50] px-6 py-3 rounded-full text-sm font-medium shadow">
-      Export List
-      <img ngSrc="/export.svg" alt="message icon" class="w-4 h-4" height="11" width="17">
+      class="flex items-center gap-2 justify-between md:justify-start text-white bg-gradient-to-b from-secondary to-[#1E0B50] px-6 py-3 rounded-full text-sm font-medium shadow cursor-pointer"
+    >
+      <span>Export List</span>
+      <img ngSrc="/export.svg" alt="message icon" class="w-4 h-4" height="11" width="17" />
     </button>
   </div>
   <app-modal
@@ -39,4 +54,5 @@
     [isOpen]="isModalOpen"
     (close)="isModalOpen = false"
   ></app-modal>
+
 </div>

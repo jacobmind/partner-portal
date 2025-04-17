@@ -1,13 +1,13 @@
 <div class="flex h-screen">
   <!-- Sidebar -->
-  <app-sidebar class="w-64 shrink-0"></app-sidebar>
+  <app-sidebar class="md:w-48 lg:w-64 shrink-0"></app-sidebar>
 
   <!-- Right section: Navbar + Main content -->
   <div class="flex flex-col flex-1 overflow-hidden">
     <!-- Navbar -->
     <app-navbar class="h-[70px] shrink-0"></app-navbar>
     <!-- Main Content -->
-    <main class="flex-1 p-6 overflow-y-auto">
+    <main class="flex-1 p-4 md:p-6 overflow-y-auto">
       <router-outlet></router-outlet>
     </main>
   </div>

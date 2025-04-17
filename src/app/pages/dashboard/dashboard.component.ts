@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
+import {CurrencyPipe, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {PaginationComponent} from '../../components/pagination/pagination.component';
 import { Partner, PartnerService } from '../../services/partner.service';
 import {TableToolbarComponent} from '../../components/table-toolbar/table-toolbar.component';
@@ -12,6 +12,7 @@ import {TableToolbarComponent} from '../../components/table-toolbar/table-toolba
     NgIf,
     TableToolbarComponent,
     NgOptimizedImage,
+    CurrencyPipe,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
@@ -20,7 +21,7 @@ import {TableToolbarComponent} from '../../components/table-toolbar/table-toolba
 export class DashboardComponent {
   partners: Partner[] = [];
   loading = false;
-  itemsPerPage = 5;
+  itemsPerPage = 14;
   currentPage = 1;
 
   constructor(private partnerService: PartnerService) {}

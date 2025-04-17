@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import {ModalComponent} from '../modal/modal.component';
-import {NgOptimizedImage} from '@angular/common';
+import {NgClass, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-table-toolbar',
   imports: [
     ModalComponent,
-    NgOptimizedImage
+    NgOptimizedImage,
+    NgClass
   ],
   templateUrl: './table-toolbar.component.html',
   styleUrl: './table-toolbar.component.css'
@@ -14,6 +15,7 @@ import {NgOptimizedImage} from '@angular/common';
 export class TableToolbarComponent {
   modalMessage = '';
   isModalOpen = false;
+  showMobileActions = false;
 
   openModal(message: string) {
     this.modalMessage = message;
