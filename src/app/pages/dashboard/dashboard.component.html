@@ -45,7 +45,12 @@
         </thead>
         <tbody class="text-sm text-[#101058] bg-[#F9FBFE]">
         <tr *ngIf="loading">
-          <td colspan="8" class="text-center p-4">Loading partners...</td>
+          <td colspan="8" class="text-center p-4">
+            <div class="flex justify-center items-center h-full">
+              <div class="spinner-border animate-spin inline-block w-6 h-6 border-4 rounded-full border-t-primary border-gray-300 mr-2"></div>
+              <span class="text-center">Loading partners...</span>
+            </div>
+          </td>
         </tr>
         <tr *ngIf="error">
           <td colspan="8" class="text-center text-red-600 p-4">
